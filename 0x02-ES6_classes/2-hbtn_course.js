@@ -1,4 +1,4 @@
-class HolbertonCourse {
+export default class HolbertonCourse {
   constructor(name, length, students) {
     this.name = name;
     this.length = length;
@@ -32,7 +32,7 @@ class HolbertonCourse {
   }
 
   set students(value) {
-    if (this.students instanceof Array) {
+    if (value instanceof Array) {
       this._students = value;
     } else {
       throw new TypeError('students must be an array');
