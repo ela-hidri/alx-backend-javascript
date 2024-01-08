@@ -1,8 +1,6 @@
 export default function getListStudentIds(tab) {
-  if (typeof tab === 'string') { return ([]); }
+  if (tab instanceof Array) { return ([]); }
   let ids = [];
-  ids = tab.map((stdent) => {
-    return (stdent.id);
-  });
+  ids = tab.map((stdent) => (stdent.id));
   return (ids);
 }
