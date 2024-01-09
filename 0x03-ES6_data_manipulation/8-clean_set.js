@@ -1,8 +1,8 @@
 export default function cleanSet(set, startString) {
-  let str = ' ';
+  let str = '';
   set.forEach((value) => {
-    if (value.startsWith(startString) && startString.length > 0) {
-      if (str === ' ') { str = value.replace(startString, ''); } else { str += `-${value.replace(startString, '')}`; }
+    if (value.startsWith(startString) && startString.length > 0 && typeof startString === 'string') {
+      if (str === '') { str = value.replace(startString, ''); } else { str += `-${value.replace(startString, '')}`; }
     }
   });
   return str;
