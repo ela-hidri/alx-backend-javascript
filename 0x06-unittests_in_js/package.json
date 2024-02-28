@@ -4,7 +4,9 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.12",
+    "@types/sinon": "^17.0.3",
     "chai": "^4.4.1",
-    "mocha": "^10.3.0"
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1"
   }
 }
