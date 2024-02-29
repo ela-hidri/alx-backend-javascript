@@ -28,3 +28,5 @@ app.post('/login', (req, res) => {
 app.listen(PORT, () => {
     console.log('API available on localhost port 7865')
 })
+
+module.exports = app;
