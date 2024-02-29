@@ -13,35 +13,36 @@ describe('API suite', () => {
   });
 
   it('should respond for correct id type', (done) => {
-    request.get(`${API_URL}/cart/23`, (_err, res, body) => {
+    request.get(`${API_URL}/cart/2`, (_err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Payment methods for cart 23');
+      expect(body).to.be.equal('Payment methods for cart 2');
       done();
     });
   });
 
   it('should respond for negative id', (done) => {
-    request.get(`${API_URL}/cart/-5`, (_err, res, _body) => {
+    request.get(`${API_URL}/cart/-2`, (_err, res, _body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });
   });
 
   it('should respond for wrong id type', (done) => {
-    request.get(`${API_URL}/cart/25lo5k`, (_err, res, _body) => {
+    request.get(`${API_URL}/cart/2ff`, (_err, res, _body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });
   });
-  it('should returns valid response', (done) => {
-    request.post(`${API_URL}/login`, {json: {userName: 'elaa'}}, (_err, res, body) => {
+
+  it('POST /login returns valid response', (done) => {
+    request.post(`${API_URL}/login`, {json: {userName: 'Betty'}}, (_err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Welcome elaa');
+      expect(body).to.be.equal('Welcome Betty');
       done();
     });
   });
 
-  it('should returns valid response', (done) => {
+  it('GET /available_payments returns valid response', (done) => {
     request.get(`${API_URL}/available_payments`, (_err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(JSON.parse(body))
@@ -49,5 +50,4 @@ describe('API suite', () => {
       done();
     });
   });
-  
 });
